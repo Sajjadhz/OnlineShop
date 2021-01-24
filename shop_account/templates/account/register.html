@@ -1,0 +1,55 @@
+{% extends 'shared/_MainLayout.html' %}
+
+{% block content %}
+
+    <div class="container">
+		<section id="form"><!--form-->
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="signup-form"><!--sign up form-->
+						<h2>ثبت نام کاربـر جدیـد</h2>
+						<form method="post">{# Note that here we must declare method as post otherwise it does not work #}
+                            {% csrf_token %}
+{#							{{ register_form }} this line shows all form parameters which is not ok because we have no control on it#}
+                            <label for="{{ register_form.user_name.id_for_label }}">{{ register_form.user_name.label }}</label> {# this line shows only user name field label #}
+                            {{ register_form.user_name }}  {# this line shows only user name field #}
+                            {% for error in register_form.user_name.errors %}  {# this line shows errors from list of errors in user_name.errors#}
+
+                                <p style="color: red;">
+								    {{ error }}
+							    </p>
+							{% endfor %}
+                            <label for="{{ register_form.email.id_for_label }}">{{ register_form.email.label }}</label> {# this line shows only email field label #}
+                            {{ register_form.email }}  {# this line shows only email field #}
+                            {% for error in register_form.email.errors %}  {# this line shows errors from list of errors in email.errors#}
+
+                                <p style="color: red;">
+								    {{ error }}
+							    </p>
+							{% endfor %}
+                             <label for="{{ register_form.password.id_for_label }}">{{ register_form.password.label }}</label> {# this line shows only password field label #}
+                            {{ register_form.password }}  {# this line shows only password field #}
+                            {% for error in register_form.password.errors %}  {# this line shows errors from list of errors in password.errors#}
+
+                                <p style="color: red;">
+								    {{ error }}
+							    </p>
+							{% endfor %}
+                             <label for="{{ register_form.re_password.id_for_label }}">{{ register_form.re_password.label }}</label> {# this line shows only password field label #}
+                            {{ register_form.re_password }}  {# this line shows only password field #}
+                            {% for error in register_form.re_password.errors %}  {# this line shows errors from list of errors in password.errors#}
+
+                                <p style="color: red;">
+								    {{ error }}
+							    </p>
+							{% endfor %}
+                            <button type="submit" class="btn btn-default">ثبت نام</button>
+                        </form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</section>
+	</div>
+	<!--/form-->
+
+{% endblock %}

@@ -1,0 +1,2 @@
+it's recommended that to make a requirements.txt file and put project's installed packages into it.
+try to run pip freeze > requirements.txt command after each time of package installation.

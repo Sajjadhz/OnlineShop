@@ -1,0 +1,27 @@
+{# this file includes most repeated section of html templates files #}
+<div class="col-sm-4" pull-right> {# we use pull-right attribute to align elements right #}
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img src="{{ product.image.url }}" alt="">
+										<h2>{{ product.price }} تومان</h2>
+                                        <p>{{ product.title }}</p>
+										<p>توضیحات کوتـاه محصـول</p>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
+											<h2>{{ product.price }} تومان</h2>
+											<p>توضیحات کوتـاه محصـول</p>
+											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
+										</div>
+									</div>
+								</div>
+								<div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="{{ product.get_absolute_url }}"><i class="fa fa-plus-square"></i>مشاهده</a></li> {# here we use a method for detail view which is defined in productd model #}
+										<li><a href=""><i class="fa fa-plus-square"></i>مقایسه</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
